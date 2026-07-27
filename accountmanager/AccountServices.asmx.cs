@@ -49,5 +49,32 @@ namespace accountmanager
 			//return the number of rows we have, that's how many accounts are in the system!
 			return sqlDt.Rows.Count;
 		}
+		[WebMethod]
+		public DataTable GetProposals()
+		{
+			string sqlConnectString =
+				System.Configuration.ConfigurationManager
+				.ConnectionStrings["teamDB"].ConnectionString;
+
+			string sqlSelect =
+				@"SELECT proposal_id, title, description, status
+				FROM proposals
+				ORDER BY proposal_id";
+
+			MySqlConnection sqlConnection =
+				new MySqlConnection(sqlConnectString);
+
+			MySqlCommand sqlCommand =
+				new MySqlCommand(sqlSelect, sqlConnection);
+
+			MySqlDataAdapter sqlDataAdapter =
+				new MySqlDataAdapter(sqlCommand);
+
+			DataTable proposalTable = new DataTable();
+
+			sqlDataAdapter.Fill(proposalTable);
+
+			return proposalTable;
+		}
 	}
 }

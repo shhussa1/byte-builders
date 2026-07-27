@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>accountmanager</RootNamespace>
     <AssemblyName>accountmanager</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -92,6 +92,7 @@
   <ItemGroup>
     <Content Include="AccountServices.asmx" />
     <Content Include="Global.asax" />
+    <Content Include="ProposalStatus.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +103,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+     <Compile Include="ProposalStatus.aspx.cs">
+    <DependentUpon>ProposalStatus.aspx</DependentUpon>
+    <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProposalStatus.aspx.designer.cs">
+    <DependentUpon>ProposalStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

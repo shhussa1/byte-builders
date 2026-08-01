@@ -95,6 +95,10 @@
     <Content Include="ProposalStatus.aspx" />
     <Content Include="CreateAccount.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="SubmitProposal.aspx" />
+    <Content Include="Dashboard.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="ManageUsers.aspx" />
     <Content Include="Styles\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -116,6 +120,34 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.cs">
+    <DependentUpon>ManageUsers.aspx</DependentUpon>
+    <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.designer.cs">
+    <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitProposal.aspx.cs">
+    <DependentUpon>SubmitProposal.aspx</DependentUpon>
+    <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitProposal.aspx.designer.cs">
+    <DependentUpon>SubmitProposal.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">

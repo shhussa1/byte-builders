@@ -1,121 +1,210 @@
-<%@ Page Language="C#" AutoEventWireup="true"
+<%@ Page Language="C#"
+    AutoEventWireup="true"
     CodeBehind="ViewGroupDetails.aspx.cs"
     Inherits="accountmanager.ViewGroupDetails" %>
+
+<%@ Register
+    Src="~/Controls/Navigation.ascx"
+    TagPrefix="bb"
+    TagName="Navigation" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <title>Concern Group Details</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            margin: 0;
-            padding: 40px;
-        }
+    <title>View Concern Groups | Byte Builders</title>
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1" />
 
-        h1 {
-            margin-bottom: 10px;
-        }
+    <link
+        href="Styles/site.css"
+        rel="stylesheet"
+        type="text/css" />
 
-        .subtitle {
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        th,
-        td {
-            padding: 14px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #2f4858;
-            color: white;
-        }
-
-        tr:hover {
-            background-color: #f8f8f8;
-        }
-
-        .status {
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>
 
 <form id="form1" runat="server">
 
-    <div class="container">
+    <bb:Navigation
+        ID="Navigation1"
+        runat="server" />
 
-        <h1>Concern Group Details</h1>
+    <main class="group-details-page">
 
-        <p class="subtitle">
-            View existing concern groups and their current information.
-        </p>
+        <section class="proposal-status-heading">
 
-        <asp:GridView
-            ID="gvGroups"
-            runat="server"
-            AutoGenerateColumns="False"
-            Width="100%"
-            GridLines="None">
+            <div>
 
-            <Columns>
+                <div class="form-eyebrow">
+                    Concern group management
+                </div>
 
-                <asp:BoundField
-                    DataField="concern_group_id"
-                    HeaderText="Group ID" />
+                <h1>
+                    View concern groups
+                </h1>
 
-                <asp:BoundField
-                    DataField="concern_group_name"
-                    HeaderText="Group Name" />
+                <p>
+                    Review all concern groups created by Managers.
+                    These groups are available for employees to select
+                    when submitting workplace proposals.
+                </p>
 
-                <asp:BoundField
-                    DataField="concern_group_description"
-                    HeaderText="Description" />
+            </div>
 
-                <asp:BoundField
-                    DataField="status"
-                    HeaderText="Status"
-                    ItemStyle-CssClass="status" />
+            <div class="manager-access-badge">
+                Manager access
+            </div>
 
-                <asp:BoundField
-                    DataField="created_by"
-                    HeaderText="Created By" />
-
-                <asp:BoundField
-                    DataField="created_at"
-                    HeaderText="Created At"
-                    DataFormatString="{0:MM/dd/yyyy HH:mm}" />
-
-            </Columns>
-
-        </asp:GridView>
+        </section>
 
         <asp:Label
             ID="lblMessage"
-            runat="server">
-        </asp:Label>
+            runat="server"
+            CssClass="message group-details-message" />
 
-    </div>
+        <section class="app-card proposal-table-card">
+
+            <div class="proposal-table-header">
+
+                <div>
+
+                    <span class="proposal-table-eyebrow">
+                        Concern groups
+                    </span>
+
+                    <h2>
+                        Available groups
+                    </h2>
+
+                </div>
+
+                <div class="proposal-table-note">
+                    Created-by information is displayed using the
+                    Manager's registered name.
+                </div>
+
+            </div>
+
+            <div class="proposal-table-scroll">
+
+                <asp:GridView
+                    ID="gvGroups"
+                    runat="server"
+                    AutoGenerateColumns="False"
+                    GridLines="None"
+                    CssClass="proposal-grid group-details-grid"
+                    EmptyDataText="No concern groups are currently available.">
+
+                    <Columns>
+
+                        <asp:TemplateField HeaderText="ID">
+                            <ItemTemplate>
+                                <span class="proposal-id-column">
+                                    <%# Eval("concern_group_id") %>
+                                </span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Group name">
+                            <ItemTemplate>
+                                <span class="group-name">
+                                    <%# Server.HtmlEncode(
+                                        Convert.ToString(
+                                            Eval("concern_group_name")
+                                        )
+                                    ) %>
+                                </span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Description">
+                            <ItemTemplate>
+                                <div class="group-description-cell">
+                                    <%# Server.HtmlEncode(
+                                        Convert.ToString(
+                                            Eval("concern_group_description")
+                                        )
+                                    ) %>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Status">
+                            <ItemTemplate>
+                                <span
+                                    class='<%#
+                                        "proposal-status-pill " +
+                                        GetGroupStatusClass(
+                                            Eval("status")
+                                        )
+                                    %>'>
+
+                                    <%# Server.HtmlEncode(
+                                        Convert.ToString(
+                                            Eval("status")
+                                        )
+                                    ) %>
+
+                                </span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Created by">
+                            <ItemTemplate>
+                                <span class="created-by-pill">
+                                    <%# Server.HtmlEncode(
+                                        Convert.ToString(
+                                            Eval("created_by_name")
+                                        )
+                                    ) %>
+                                </span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Created">
+                            <ItemTemplate>
+                                <span class="group-created-date">
+                                    <%# FormatCreatedDate(
+                                        Eval("created_at")
+                                    ) %>
+                                </span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                    </Columns>
+
+                </asp:GridView>
+
+            </div>
+
+        </section>
+
+        <div class="group-details-footer">
+
+            <a
+                href="Dashboard.aspx"
+                class="secondary-link-button">
+
+                Return to dashboard
+
+            </a>
+
+            <a
+                href="SubmitConcernGroup.aspx"
+                class="primary-link-button">
+
+                Create concern group
+
+            </a>
+
+        </div>
+
+    </main>
 
 </form>
 

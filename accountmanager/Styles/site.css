@@ -2155,3 +2155,209 @@ a:hover {
         text-align: left;
     }
 }
+
+/* =========================================================
+   VIEW CONCERN GROUP DETAILS
+   ========================================================= */
+
+.group-details-page {
+    width: min(1220px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 48px 0 64px;
+}
+
+
+/* Page message */
+
+.group-details-message {
+    display: block;
+    min-height: 20px;
+    margin: 0 0 18px;
+    text-align: left;
+}
+
+
+/* Table sizing */
+
+.group-details-grid {
+    min-width: 1080px;
+}
+
+
+/* Concern-group name */
+
+.group-name {
+    display: inline-block;
+    min-width: 165px;
+    color: #101828;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+
+/* Concern-group description */
+
+.group-description-cell {
+    min-width: 300px;
+    max-width: 440px;
+    color: #667085;
+    line-height: 1.6;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+
+/* Created-by badge */
+
+.created-by-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    max-width: 190px;
+    padding: 5px 11px;
+    overflow: hidden;
+    border: 1px solid #ddd6fe;
+    border-radius: 999px;
+    color: #6941c6;
+    background: #f4f3ff;
+    font-size: 12px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Created date */
+
+.group-created-date {
+    display: inline-block;
+    min-width: 105px;
+    color: #667085;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+
+/* Active concern group */
+
+.group-status-active {
+    color: #067647;
+    background: #ecfdf3;
+}
+
+
+/* Inactive concern group */
+
+.group-status-inactive {
+    color: #b42318;
+    background: #fef3f2;
+}
+
+
+/* Pending concern group */
+
+.group-status-pending {
+    color: #b54708;
+    background: #fffaeb;
+}
+
+
+/* Unknown/default status */
+
+.group-status-default {
+    color: #475467;
+    background: #f2f4f7;
+}
+
+
+/* Bottom action links */
+
+.group-details-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+
+.secondary-link-button,
+.primary-link-button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.secondary-link-button {
+    border: 1px solid var(--border);
+    color: #344054;
+    background: #ffffff;
+}
+
+
+.secondary-link-button:hover {
+    border-color: #aebfd4;
+    color: #101828;
+    background: #f8fafc;
+    text-decoration: none;
+}
+
+
+.primary-link-button {
+    border: 0;
+    color: #ffffff;
+    background:
+        linear-gradient(
+            90deg,
+            #0787ff 0%,
+            #1768ff 52%,
+            #6f37ff 100%
+        );
+    box-shadow:
+        0 9px 20px
+        rgba(35, 92, 255, 0.20);
+}
+
+
+.primary-link-button:hover {
+    transform: translateY(-1px);
+    color: #ffffff;
+    box-shadow:
+        0 13px 25px
+        rgba(35, 92, 255, 0.27);
+    text-decoration: none;
+}
+
+
+/* Responsive layout */
+
+@media (max-width: 700px) {
+
+    .group-details-page {
+        width: calc(100% - 32px);
+        padding: 34px 0 46px;
+    }
+
+    .group-details-footer {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .secondary-link-button,
+    .primary-link-button {
+        width: 100%;
+    }
+}

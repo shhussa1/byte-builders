@@ -2,6 +2,11 @@
     CodeBehind="Dashboard.aspx.cs"
     Inherits="accountmanager.Dashboard" %>
 
+<%@ Register
+    Src="~/Controls/Navigation.ascx"
+    TagPrefix="bb"
+    TagName="Navigation" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -22,62 +27,10 @@
 
 <form id="form1" runat="server">
 
-    <!-- TOP NAVIGATION -->
+    <bb:Navigation
+        ID="Navigation1"
+        runat="server" />
 
-    <header class="app-nav">
-
-        <a href="Dashboard.aspx"
-           class="app-nav-brand">
-
-            <img
-                src="Images/byte-builders-b.png"
-                alt="Byte Builders" />
-
-            <div class="dashboard-brand-text">
-
-                <span class="dashboard-brand-byte">
-                    BYTE
-                </span>
-
-                <span class="dashboard-brand-builders">
-                    BUILDERS
-                </span>
-
-            </div>
-
-        </a>
-
-
-        <div class="dashboard-user">
-
-            <div class="dashboard-user-details">
-
-                <span class="dashboard-welcome">
-                    Welcome,
-                    <asp:Literal
-                        ID="litUserName"
-                        runat="server" />
-                </span>
-
-                <span class="dashboard-role">
-                    <asp:Literal
-                        ID="litRole"
-                        runat="server" />
-                </span>
-
-            </div>
-
-            <a href="Logout.aspx"
-               class="dashboard-logout">
-                Sign out
-            </a>
-
-        </div>
-
-    </header>
-
-
-    <!-- MAIN PAGE -->
 
     <main class="dashboard-page">
 
@@ -145,7 +98,8 @@
             <asp:Panel
                 ID="pnlEmployee"
                 runat="server"
-                CssClass="dashboard-panel">
+                CssClass="dashboard-panel"
+                Visible="false">
 
                 <a href="SubmitProposal.aspx"
                    class="dashboard-card">
@@ -165,7 +119,7 @@
                         </h2>
 
                         <p>
-                            Choose an active concern group and
+                            Select an active concern group and
                             submit a workplace proposal.
                         </p>
 
@@ -185,7 +139,8 @@
             <asp:Panel
                 ID="pnlManager"
                 runat="server"
-                CssClass="dashboard-panel">
+                CssClass="dashboard-panel"
+                Visible="false">
 
                 <a href="SubmitConcernGroup.aspx"
                    class="dashboard-card">
@@ -267,8 +222,8 @@
                         </h2>
 
                         <p>
-                            Move proposals through review, approval,
-                            implementation, or decline.
+                            Move proposals through review,
+                            approval, implementation, or decline.
                         </p>
 
                     </div>
@@ -287,7 +242,8 @@
             <asp:Panel
                 ID="pnlAdmin"
                 runat="server"
-                CssClass="dashboard-panel">
+                CssClass="dashboard-panel"
+                Visible="false">
 
                 <a href="ManageUsers.aspx"
                    class="dashboard-card dashboard-card-admin">

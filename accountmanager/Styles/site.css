@@ -1705,3 +1705,120 @@ a:hover {
         font-size: 34px;
     }
 }
+
+/* =========================================================
+   SHARED NAVIGATION
+   ========================================================= */
+
+.app-menu {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-panel {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.app-menu a {
+    color: #dcecff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        color 0.15s ease,
+        background 0.15s ease;
+}
+
+.app-menu a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-user {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding-left: 18px;
+    border-left:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+    color: #dcecff;
+    font-size: 13px;
+}
+
+.nav-role {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 4px 10px;
+    border:
+        1px solid
+        rgba(101, 214, 255, 0.25);
+    border-radius: 999px;
+    color: #6fd8ff;
+    background:
+        rgba(8, 120, 255, 0.10);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.nav-logout {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 13px;
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.20);
+    border-radius: 8px;
+    color: #ffffff !important;
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+.nav-logout:hover {
+    background:
+        rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 1050px) {
+    .app-menu {
+        gap: 13px;
+    }
+
+    .nav-panel {
+        gap: 13px;
+    }
+
+    .app-menu a {
+        font-size: 12px;
+    }
+
+    .nav-user {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .app-nav {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        height: auto;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .app-menu {
+        width: 100%;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .nav-panel {
+        display: contents;
+    }
+}

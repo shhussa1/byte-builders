@@ -99,6 +99,7 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ManageUsers.aspx" />
+    <Content Include="SubmitConcernGroup.aspx" />
     <Content Include="Controls\Navigation.ascx" />
     <Content Include="Styles\site.css" />
     <Content Include="Web.config" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitConcernGroup.aspx.cs">
+      <DependentUpon>SubmitConcernGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitConcernGroup.aspx.designer.cs">
+      <DependentUpon>SubmitConcernGroup.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageUsers.aspx.cs">
     <DependentUpon>ManageUsers.aspx</DependentUpon>

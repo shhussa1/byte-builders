@@ -2,8 +2,7 @@ namespace accountmanager
 {
     public partial class Dashboard
     {
-        protected global::System.Web.UI.HtmlControls.HtmlForm
-            form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         protected global::System.Web.UI.WebControls.Label
             lblDashboardMessage;

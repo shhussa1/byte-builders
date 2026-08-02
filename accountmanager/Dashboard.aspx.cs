@@ -2,61 +2,39 @@ using System;
 
 namespace accountmanager
 {
-    public partial class Dashboard :
-        System.Web.UI.Page
+    public partial class Dashboard : System.Web.UI.Page
     {
-        protected void Page_Load(
-            object sender,
-            EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-             * Only logged-in users can open the dashboard.
-             */
+            // Only logged-in users may open the dashboard.
             if (Session["UserId"] == null)
             {
                 Response.Redirect("Login.aspx");
                 return;
             }
 
-            /*
-             * The user's role must exist in the session.
-             */
+            // The logged-in user's role must exist.
             if (Session["Role"] == null)
             {
-                Session.Clear();
-                Session.Abandon();
-
-                Response.Redirect("Login.aspx");
+                ClearSessionAndReturnToLogin();
                 return;
             }
 
-            /*
-             * Set visibility every time the page loads.
-             * This ensures the correct role menu is displayed.
-             */
             string role =
-                Convert.ToString(
-                    Session["Role"]
-                ).Trim();
+                Convert.ToString(Session["Role"]).Trim();
 
+            // Run this on every page request so the correct
+            // role-based cards are always shown.
             SetMenuVisibility(role);
         }
 
-
-        private void SetMenuVisibility(
-            string role)
+        private void SetMenuVisibility(string role)
         {
-            /*
-             * Hide every role-specific panel first.
-             */
+            // Hide all role-specific sections first.
             pnlEmployee.Visible = false;
             pnlManager.Visible = false;
             pnlAdmin.Visible = false;
 
-
-            /*
-             * Employee dashboard.
-             */
             if (role.Equals(
                 "Employee",
                 StringComparison.OrdinalIgnoreCase))
@@ -65,10 +43,6 @@ namespace accountmanager
                 return;
             }
 
-
-            /*
-             * Manager dashboard.
-             */
             if (role.Equals(
                 "Manager",
                 StringComparison.OrdinalIgnoreCase))
@@ -77,10 +51,6 @@ namespace accountmanager
                 return;
             }
 
-
-            /*
-             * Admin dashboard.
-             */
             if (role.Equals(
                 "Admin",
                 StringComparison.OrdinalIgnoreCase))
@@ -89,10 +59,12 @@ namespace accountmanager
                 return;
             }
 
+            // Any unknown role is treated as an invalid session.
+            ClearSessionAndReturnToLogin();
+        }
 
-            /*
-             * Unknown role.
-             */
+        private void ClearSessionAndReturnToLogin()
+        {
             Session.Clear();
             Session.Abandon();
 

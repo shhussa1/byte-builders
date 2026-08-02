@@ -1,12 +1,12 @@
 <%@ Page Language="C#" AutoEventWireup="true"
-    CodeBehind="ProposalStatus.aspx.cs"
-    Inherits="accountmanager.ProposalStatus" %>
+    CodeBehind="ViewGroupDetails.aspx.cs"
+    Inherits="accountmanager.ViewGroupDetails" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <title>Proposal Status</title>
+    <title>Concern Group Details</title>
 
     <style>
         body {
@@ -37,7 +37,8 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        th, td {
+        th,
+        td {
             padding: 14px;
             text-align: left;
             border-bottom: 1px solid #ddd;
@@ -64,14 +65,14 @@
 
     <div class="container">
 
-        <h1>Proposal Status</h1>
+        <h1>Concern Group Details</h1>
 
         <p class="subtitle">
-            View the current status of workplace proposals submitted to management.
+            View existing concern groups and their current information.
         </p>
 
         <asp:GridView
-            ID="gvProposals"
+            ID="gvGroups"
             runat="server"
             AutoGenerateColumns="False"
             Width="100%"
@@ -80,21 +81,30 @@
             <Columns>
 
                 <asp:BoundField
-                    DataField="proposal_id"
-                    HeaderText="Proposal ID" />
+                    DataField="concern_group_id"
+                    HeaderText="Group ID" />
 
                 <asp:BoundField
-                    DataField="title"
-                    HeaderText="Proposal" />
+                    DataField="concern_group_name"
+                    HeaderText="Group Name" />
 
                 <asp:BoundField
-                    DataField="description"
+                    DataField="concern_group_description"
                     HeaderText="Description" />
 
                 <asp:BoundField
                     DataField="status"
                     HeaderText="Status"
                     ItemStyle-CssClass="status" />
+
+                <asp:BoundField
+                    DataField="created_by"
+                    HeaderText="Created By" />
+
+                <asp:BoundField
+                    DataField="created_at"
+                    HeaderText="Created At"
+                    DataFormatString="{0:MM/dd/yyyy HH:mm}" />
 
             </Columns>
 

@@ -4,17 +4,17 @@ using MySql.Data.MySqlClient;
 
 namespace accountmanager
 {
-    public partial class ProposalStatus : System.Web.UI.Page
+    public partial class ViewGroupDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                LoadProposals();
+                LoadConcernGroups();
             }
         }
 
-        private void LoadProposals()
+        private void LoadConcernGroups()
         {
             try
             {
@@ -24,36 +24,36 @@ namespace accountmanager
                     .ConnectionString;
 
                 string sql =
-                    @"SELECT proposal_id,
-                             title,
-                             description,
-                             status
-                      FROM proposals
-                      ORDER BY proposal_id";
+                    @"SELECT
+                        concern_group_id,
+                        concern_group_name,
+                        concern_group_description,
+                        status,
+                        created_by,
+                        created_at
+                      FROM concern_groups
+                      ORDER BY concern_group_id";
 
-                using (MySqlConnection connection =
-                    new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    using (MySqlCommand command =
-                        new MySqlCommand(sql, connection))
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
-                        using (MySqlDataAdapter adapter =
-                            new MySqlDataAdapter(command))
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                         {
-                            DataTable proposalTable =
-                                new DataTable();
+                            DataTable groupTable = new DataTable();
 
-                            adapter.Fill(proposalTable);
+                            adapter.Fill(groupTable);
 
-                            gvProposals.DataSource =
-                                proposalTable;
+                            gvGroups.DataSource = groupTable;
+                            gvGroups.DataBind();
 
-                            gvProposals.DataBind();
-
-                            if (proposalTable.Rows.Count == 0)
+                            if (groupTable.Rows.Count == 0)
                             {
-                                lblMessage.Text =
-                                    "No proposals are currently available.";
+                                lblMessage.Text = "No concern groups are currently available.";
+                            }
+                            else
+                            {
+                                lblMessage.Text = "";
                             }
                         }
                     }

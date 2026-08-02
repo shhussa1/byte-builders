@@ -36,11 +36,11 @@
         <section class="dashboard-heading">
 
             <div class="form-eyebrow">
-                Byte Builders workspace
+                Byte Builders Workspace
             </div>
 
             <h1>
-                Your dashboard
+                Your Dashboard
             </h1>
 
             <p>
@@ -56,39 +56,9 @@
 
         <div class="dashboard-grid">
 
-            <!-- Available to every logged-in user -->
-
-            <a href="ProposalStatus.aspx"
-               class="dashboard-card">
-
-                <div class="dashboard-card-icon">
-                    01
-                </div>
-
-                <div class="dashboard-card-content">
-
-                    <span class="dashboard-card-label">
-                        Proposals
-                    </span>
-
-                    <h2>
-                        View Proposal Status
-                    </h2>
-
-                    <p>
-                        Review the current status and progress of
-                        workplace proposals.
-                    </p>
-
-                </div>
-
-                <span class="dashboard-card-arrow">
-                    →
-                </span>
-
-            </a>
-
-            <!-- Employee-only options -->
+            <!-- ===================================================== -->
+            <!-- EMPLOYEE -->
+            <!-- ===================================================== -->
 
             <asp:Panel
                 ID="pnlEmployee"
@@ -99,36 +69,56 @@
                 <a href="SubmitProposal.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">
-                        02
-                    </div>
+                    <div class="dashboard-card-icon">01</div>
 
                     <div class="dashboard-card-content">
 
                         <span class="dashboard-card-label">
-                            Employee action
+                            Employee
                         </span>
 
-                        <h2>
-                            Submit Proposal
-                        </h2>
+                        <h2>Submit Proposal</h2>
 
                         <p>
-                            Select an active concern group and submit
-                            a workplace proposal.
+                            Submit a workplace proposal to an active
+                            concern group.
                         </p>
 
                     </div>
 
-                    <span class="dashboard-card-arrow">
-                        →
-                    </span>
+
+                </a>
+
+
+                <a href="ProposalStatus.aspx"
+                   class="dashboard-card">
+
+                    <div class="dashboard-card-icon">02</div>
+
+                    <div class="dashboard-card-content">
+
+                        <span class="dashboard-card-label">
+                            Proposals
+                        </span>
+
+                        <h2>View Proposal Status</h2>
+
+                        <p>
+                            Track the current progress of your
+                            submitted proposals.
+                        </p>
+
+                    </div>
+
 
                 </a>
 
             </asp:Panel>
 
-            <!-- Manager-only options -->
+
+            <!-- ===================================================== -->
+            <!-- MANAGER -->
+            <!-- ===================================================== -->
 
             <asp:Panel
                 ID="pnlManager"
@@ -139,96 +129,128 @@
                 <a href="SubmitConcernGroup.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">
-                        03
-                    </div>
+                    <div class="dashboard-card-icon">01</div>
 
                     <div class="dashboard-card-content">
 
                         <span class="dashboard-card-label">
-                            Manager action
+                            Manager
                         </span>
 
-                        <h2>
-                            Create Concern Group
-                        </h2>
+                        <h2>Create Concern Group</h2>
 
                         <p>
-                            Create concern groups that employees can
-                            select when submitting proposals.
+                            Create new concern groups available for
+                            employee proposals.
                         </p>
 
                     </div>
 
-                    <span class="dashboard-card-arrow">
-                        →
-                    </span>
+ 
+                </a>
+
+
+                <a href="ViewGroupDetails.aspx"
+                   class="dashboard-card">
+
+                    <div class="dashboard-card-icon">02</div>
+
+                    <div class="dashboard-card-content">
+
+                        <span class="dashboard-card-label">
+                            Manager
+                        </span>
+
+                        <h2>View Concern Groups</h2>
+
+                        <p>
+                            View all concern groups along with the
+                            manager who created each one.
+                        </p>
+
+                    </div>
+
 
                 </a>
+
 
                 <a href="SubmittedProposals.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">
-                        04
-                    </div>
+                    <div class="dashboard-card-icon">03</div>
 
                     <div class="dashboard-card-content">
 
                         <span class="dashboard-card-label">
-                            Manager review
+                            Manager
                         </span>
 
-                        <h2>
-                            View Submitted Proposals
-                        </h2>
+                        <h2>View Submitted Proposals</h2>
 
                         <p>
-                            Review proposals submitted by employees
-                            across all concern groups.
+                            Review every proposal submitted by
+                            employees.
                         </p>
 
                     </div>
 
-                    <span class="dashboard-card-arrow">
-                        →
-                    </span>
 
                 </a>
+
+
+                <a href="ProposalStatus.aspx"
+                   class="dashboard-card">
+
+                    <div class="dashboard-card-icon">04</div>
+
+                    <div class="dashboard-card-content">
+
+                        <span class="dashboard-card-label">
+                            Proposals
+                        </span>
+
+                        <h2>View Proposal Status</h2>
+
+                        <p>
+                            View proposal status, progress and
+                            workflow updates.
+                        </p>
+
+                    </div>
+
+
+                </a>
+
 
                 <a href="UpdateProposalStatus.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">
-                        05
-                    </div>
+                    <div class="dashboard-card-icon">05</div>
 
                     <div class="dashboard-card-content">
 
                         <span class="dashboard-card-label">
-                            Manager action
+                            Manager
                         </span>
 
-                        <h2>
-                            Update Proposal Status
-                        </h2>
+                        <h2>Update Proposal Status</h2>
 
                         <p>
-                            Move proposals through review, approval,
-                            implementation, or decline.
+                            Approve, reject or update proposal
+                            progress.
                         </p>
 
                     </div>
 
-                    <span class="dashboard-card-arrow">
-                        →
-                    </span>
 
                 </a>
 
             </asp:Panel>
 
-            <!-- Admin-only options -->
+
+            <!-- ===================================================== -->
+            <!-- ADMIN -->
+            <!-- ===================================================== -->
 
             <asp:Panel
                 ID="pnlAdmin"
@@ -239,9 +261,7 @@
                 <a href="ManageUsers.aspx"
                    class="dashboard-card dashboard-card-admin">
 
-                    <div class="dashboard-card-icon">
-                        06
-                    </div>
+                    <div class="dashboard-card-icon">01</div>
 
                     <div class="dashboard-card-content">
 
@@ -249,50 +269,15 @@
                             Administration
                         </span>
 
-                        <h2>
-                            Manage Users
-                        </h2>
+                        <h2>Manage Users</h2>
 
                         <p>
-                            Assign registered users as Employees
-                            or Managers.
+                            Promote Employees to Managers and manage
+                            user permissions.
                         </p>
 
                     </div>
 
-                    <span class="dashboard-card-arrow">
-                        →
-                    </span>
-
-                </a>
-
-                <a href="SubmitConcernGroup.aspx"
-                   class="dashboard-card dashboard-card-admin">
-
-                    <div class="dashboard-card-icon">
-                        07
-                    </div>
-
-                    <div class="dashboard-card-content">
-
-                        <span class="dashboard-card-label">
-                            Administration
-                        </span>
-
-                        <h2>
-                            Create Concern Group
-                        </h2>
-
-                        <p>
-                            Create active concern groups for employees
-                            to use during proposal submission.
-                        </p>
-
-                    </div>
-
-                    <span class="dashboard-card-arrow">
-                        →
-                    </span>
 
                 </a>
 

@@ -31,7 +31,6 @@
         ID="Navigation1"
         runat="server" />
 
-
     <main class="dashboard-page">
 
         <section class="dashboard-heading">
@@ -50,17 +49,14 @@
 
         </section>
 
-
         <asp:Label
             ID="lblDashboardMessage"
             runat="server"
             CssClass="message dashboard-message" />
 
-
         <div class="dashboard-grid">
 
-
-            <!-- AVAILABLE TO ALL LOGGED-IN USERS -->
+            <!-- Available to every logged-in user -->
 
             <a href="ProposalStatus.aspx"
                class="dashboard-card">
@@ -92,8 +88,7 @@
 
             </a>
 
-
-            <!-- EMPLOYEE MENU -->
+            <!-- Employee-only options -->
 
             <asp:Panel
                 ID="pnlEmployee"
@@ -119,8 +114,8 @@
                         </h2>
 
                         <p>
-                            Select an active concern group and
-                            submit a workplace proposal.
+                            Select an active concern group and submit
+                            a workplace proposal.
                         </p>
 
                     </div>
@@ -133,8 +128,7 @@
 
             </asp:Panel>
 
-
-            <!-- MANAGER MENU -->
+            <!-- Manager-only options -->
 
             <asp:Panel
                 ID="pnlManager"
@@ -160,8 +154,8 @@
                         </h2>
 
                         <p>
-                            Create concern groups that employees
-                            can select when submitting proposals.
+                            Create concern groups that employees can
+                            select when submitting proposals.
                         </p>
 
                     </div>
@@ -171,7 +165,6 @@
                     </span>
 
                 </a>
-
 
                 <a href="SubmittedProposals.aspx"
                    class="dashboard-card">
@@ -203,7 +196,6 @@
 
                 </a>
 
-
                 <a href="UpdateProposalStatus.aspx"
                    class="dashboard-card">
 
@@ -222,8 +214,8 @@
                         </h2>
 
                         <p>
-                            Move proposals through review,
-                            approval, implementation, or decline.
+                            Move proposals through review, approval,
+                            implementation, or decline.
                         </p>
 
                     </div>
@@ -236,8 +228,7 @@
 
             </asp:Panel>
 
-
-            <!-- ADMIN MENU -->
+            <!-- Admin-only options -->
 
             <asp:Panel
                 ID="pnlAdmin"
@@ -265,6 +256,36 @@
                         <p>
                             Assign registered users as Employees
                             or Managers.
+                        </p>
+
+                    </div>
+
+                    <span class="dashboard-card-arrow">
+                        →
+                    </span>
+
+                </a>
+
+                <a href="SubmitConcernGroup.aspx"
+                   class="dashboard-card dashboard-card-admin">
+
+                    <div class="dashboard-card-icon">
+                        07
+                    </div>
+
+                    <div class="dashboard-card-content">
+
+                        <span class="dashboard-card-label">
+                            Administration
+                        </span>
+
+                        <h2>
+                            Create Concern Group
+                        </h2>
+
+                        <p>
+                            Create active concern groups for employees
+                            to use during proposal submission.
                         </p>
 
                     </div>

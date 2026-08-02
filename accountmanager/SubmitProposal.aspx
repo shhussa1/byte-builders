@@ -2,6 +2,11 @@
     CodeBehind="SubmitProposal.aspx.cs"
     Inherits="accountmanager.SubmitProposal" %>
 
+<%@ Register
+    Src="~/Controls/Navigation.ascx"
+    TagPrefix="bb"
+    TagName="Navigation" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -22,244 +27,282 @@
 
 <form id="form1" runat="server">
 
-<div class="auth-page">
+    <bb:Navigation
+        ID="Navigation1"
+        runat="server" />
 
-    <main class="auth-shell">
+
+    <div class="auth-page">
+
+        <main class="auth-shell">
 
 
-        <section class="auth-hero">
+            <section class="auth-hero">
 
-            <div class="hero-content">
+                <div class="hero-content">
 
-                <div class="brand-header">
+                    <div class="brand-header">
 
-                    <img
-                        src="Images/byte-builders-b.png"
-                        alt="Byte Builders"
-                        class="brand-logo" />
+                        <img
+                            src="Images/byte-builders-b.png"
+                            alt="Byte Builders"
+                            class="brand-logo" />
 
-                    <div class="brand-wordmark">
+                        <div class="brand-wordmark">
 
-                        <span class="brand-byte">
-                            BYTE
+                            <span class="brand-byte">
+                                BYTE
+                            </span>
+
+                            <span class="brand-builders">
+                                BUILDERS
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-eyebrow">
+                        Employee proposals
+                    </div>
+
+
+                    <h1 class="hero-title">
+
+                        Turn ideas into
+
+                        <span class="gradient-word">
+                            action.
                         </span>
 
-                        <span class="brand-builders">
-                            BUILDERS
-                        </span>
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Select the appropriate concern group and submit
+                        a clear workplace proposal for management review.
+
+                    </p>
+
+
+                    <div class="benefits">
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                01
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Select a category
+                                </strong>
+
+                                <span>
+                                    Choose the concern group related to your idea
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                02
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Describe your proposal
+                                </strong>
+
+                                <span>
+                                    Explain the concern and recommended solution
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                03
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Track the result
+                                </strong>
+
+                                <span>
+                                    Follow the proposal status after submission
+                                </span>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
                 </div>
 
+                <div class="aurora-line"></div>
 
-                <div class="hero-eyebrow">
-                    Employee proposals
+            </section>
+
+
+            <section class="auth-form-panel">
+
+                <div class="auth-top-link">
+
+                    View your proposals?
+
+                    <a href="ProposalStatus.aspx">
+                        View status
+                    </a>
+
                 </div>
 
 
-                <h1 class="hero-title">
-
-                    Turn ideas into
-
-                    <span class="gradient-word">
-                        action.
-                    </span>
-
-                </h1>
+                <div class="form-eyebrow">
+                    New proposal
+                </div>
 
 
-                <p class="hero-description">
+                <h2 class="form-title">
+                    Submit a proposal
+                </h2>
 
-                    Submit a clear workplace proposal so management
-                    can review the concern, understand the suggested
-                    solution, and provide progress updates.
+
+                <p class="form-subtitle">
+
+                    Select a concern group and describe your proposed
+                    workplace improvement.
 
                 </p>
 
 
-                <div class="benefits">
+                <!-- CONCERN GROUP DROPDOWN -->
 
-                    <div class="benefit">
+                <div class="field">
 
-                        <div class="benefit-icon">
-                            01
-                        </div>
+                    <label for="ddlConcernGroup">
+                        Concern group
+                    </label>
 
-                        <div>
+                    <asp:DropDownList
+                        ID="ddlConcernGroup"
+                        runat="server"
+                        CssClass="input proposal-select">
 
-                            <strong>
-                                Describe the concern
-                            </strong>
+                        <asp:ListItem
+                            Text="Select a concern group"
+                            Value="" />
 
-                            <span>
-                                Explain what is affecting employees
-                            </span>
+                    </asp:DropDownList>
 
-                        </div>
-
-                    </div>
-
-
-                    <div class="benefit">
-
-                        <div class="benefit-icon">
-                            02
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Suggest a solution
-                            </strong>
-
-                            <span>
-                                Give management something actionable
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="benefit">
-
-                        <div class="benefit-icon">
-                            03
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Track the result
-                            </strong>
-
-                            <span>
-                                Follow the proposal status after submission
-                            </span>
-
-                        </div>
-
+                    <div class="field-help">
+                        Only active concern groups are displayed.
                     </div>
 
                 </div>
 
-            </div>
 
-            <div class="aurora-line"></div>
+                <!-- TITLE -->
 
-        </section>
+                <div class="field">
 
+                    <label for="txtTitle">
+                        Proposal title
+                    </label>
 
+                    <asp:TextBox
+                        ID="txtTitle"
+                        runat="server"
+                        CssClass="input"
+                        MaxLength="150"
+                        placeholder="Enter a short proposal title" />
 
-        <section class="auth-form-panel">
-
-            <div class="auth-top-link">
-
-                View existing proposals?
-
-                <a href="ProposalStatus.aspx">
-                    View status
-                </a>
-
-            </div>
+                </div>
 
 
-            <div class="form-eyebrow">
-                New proposal
-            </div>
+                <!-- DESCRIPTION -->
+
+                <div class="field">
+
+                    <label for="txtDescription">
+                        Proposal description
+                    </label>
+
+                    <asp:TextBox
+                        ID="txtDescription"
+                        runat="server"
+                        CssClass="input proposal-textarea"
+                        TextMode="MultiLine"
+                        MaxLength="500"
+                        placeholder="Describe the concern and recommended solution" />
+
+                    <div class="field-help">
+                        Maximum 500 characters.
+                    </div>
+
+                </div>
 
 
-            <h2 class="form-title">
-                Submit a proposal
-            </h2>
-
-
-            <p class="form-subtitle">
-
-                Describe your proposed workplace improvement clearly.
-
-            </p>
-
-
-            <div class="field">
-
-                <label for="txtTitle">
-                    Proposal title
-                </label>
-
-                <asp:TextBox
-                    ID="txtTitle"
+                <asp:Button
+                    ID="btnSubmitProposal"
                     runat="server"
-                    CssClass="input"
-                    MaxLength="150"
-                    placeholder="Enter a short proposal title" />
-
-            </div>
+                    Text="Submit proposal"
+                    CssClass="primary-button"
+                    OnClick="btnSubmitProposal_Click" />
 
 
-            <div class="field">
-
-                <label for="txtDescription">
-                    Proposal description
-                </label>
-
-                <asp:TextBox
-                    ID="txtDescription"
+                <asp:Label
+                    ID="lblMessage"
                     runat="server"
-                    CssClass="input proposal-textarea"
-                    TextMode="MultiLine"
-                    MaxLength="500"
-                    placeholder="Describe the concern and recommended solution" />
-
-            </div>
+                    CssClass="message" />
 
 
-            <asp:Button
-                ID="btnSubmitProposal"
-                runat="server"
-                Text="Submit proposal"
-                CssClass="primary-button"
-                OnClick="btnSubmitProposal_Click" />
+                <div class="form-divider">
+                    proposal workflow
+                </div>
 
 
-            <asp:Label
-                ID="lblMessage"
-                runat="server"
-                CssClass="message" />
+                <div class="form-footer">
+
+                    After submission, the initial status will be
+
+                    <strong>
+                        Submitted
+                    </strong>.
+
+                </div>
 
 
-            <div class="form-divider">
-                proposal workflow
-            </div>
+                <div class="security-note">
 
+                    <span class="security-icon">
+                        ✓
+                    </span>
 
-            <div class="form-footer">
+                    Your proposal will be connected to your account.
 
-                After submission, the initial status will be
+                </div>
 
-                <strong>
-                    Submitted
-                </strong>.
+            </section>
 
-            </div>
+        </main>
 
-
-            <div class="security-note">
-
-                <span class="security-icon">
-                    ✓
-                </span>
-
-                Your proposal will be stored securely.
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
+    </div>
 
 </form>
 

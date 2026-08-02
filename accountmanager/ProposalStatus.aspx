@@ -2,110 +2,209 @@
     CodeBehind="ProposalStatus.aspx.cs"
     Inherits="accountmanager.ProposalStatus" %>
 
+<%@ Register
+    Src="~/Controls/Navigation.ascx"
+    TagPrefix="bb"
+    TagName="Navigation" %>
+
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <title>Proposal Status</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            margin: 0;
-            padding: 40px;
-        }
+    <title>Proposal Status | Byte Builders</title>
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1" />
 
-        h1 {
-            margin-bottom: 10px;
-        }
+    <link href="Styles/site.css"
+          rel="stylesheet"
+          type="text/css" />
 
-        .subtitle {
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        th, td {
-            padding: 14px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #2f4858;
-            color: white;
-        }
-
-        tr:hover {
-            background-color: #f8f8f8;
-        }
-
-        .status {
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>
 
 <form id="form1" runat="server">
 
-    <div class="container">
+    <!-- Shared role-based navigation -->
 
-        <h1>Proposal Status</h1>
+    <bb:Navigation
+        ID="Navigation1"
+        runat="server" />
 
-        <p class="subtitle">
-            View the current status of workplace proposals submitted to management.
-        </p>
 
-        <asp:GridView
-            ID="gvProposals"
-            runat="server"
-            AutoGenerateColumns="False"
-            Width="100%"
-            GridLines="None">
+    <main class="proposal-status-page">
 
-            <Columns>
+        <!-- Page heading -->
 
-                <asp:BoundField
-                    DataField="proposal_id"
-                    HeaderText="Proposal ID" />
+        <section class="proposal-status-heading">
 
-                <asp:BoundField
-                    DataField="title"
-                    HeaderText="Proposal" />
+            <div>
 
-                <asp:BoundField
-                    DataField="description"
-                    HeaderText="Description" />
+                <div class="form-eyebrow">
+                    Proposal tracking
+                </div>
 
-                <asp:BoundField
-                    DataField="status"
-                    HeaderText="Status"
-                    ItemStyle-CssClass="status" />
+                <h1>
+                    Proposal status
+                </h1>
 
-            </Columns>
+                <p>
+                    Review workplace proposals, their concern groups,
+                    and their current review status.
+                </p>
 
-        </asp:GridView>
+            </div>
+
+            <div class="proposal-status-badge">
+                Live status
+            </div>
+
+        </section>
+
+
+        <!-- Message area -->
 
         <asp:Label
             ID="lblMessage"
-            runat="server">
-        </asp:Label>
+            runat="server"
+            CssClass="message proposal-status-message" />
 
-    </div>
+
+        <!-- Proposal table -->
+
+        <section class="app-card proposal-table-card">
+
+            <div class="proposal-table-header">
+
+                <div>
+
+                    <span class="proposal-table-eyebrow">
+                        Submitted proposals
+                    </span>
+
+                    <h2>
+                        Proposal overview
+                    </h2>
+
+                </div>
+
+                <div class="proposal-table-note">
+                    Status information is provided by management.
+                </div>
+
+            </div>
+
+
+            <div class="proposal-table-scroll">
+
+                <asp:GridView
+                    ID="gvProposals"
+                    runat="server"
+                    AutoGenerateColumns="False"
+                    GridLines="None"
+                    CssClass="proposal-grid"
+                    EmptyDataText="No proposals are currently available."
+                    ShowHeaderWhenEmpty="True">
+
+                    <Columns>
+
+                        <asp:BoundField
+                            DataField="proposal_id"
+                            HeaderText="ID">
+
+                            <ItemStyle CssClass="proposal-id-column" />
+
+                        </asp:BoundField>
+
+
+                        <asp:TemplateField HeaderText="Concern Group">
+
+                            <ItemTemplate>
+
+                                <span class="concern-group-badge">
+
+                                    <%# Server.HtmlEncode(
+                                        Convert.ToString(
+                                            Eval("concern_group_name")
+                                        )
+                                    ) %>
+
+                                </span>
+
+                            </ItemTemplate>
+
+                        </asp:TemplateField>
+
+
+                        <asp:TemplateField HeaderText="Proposal">
+
+                            <ItemTemplate>
+
+                                <div class="proposal-title-cell">
+
+                                    <%# Server.HtmlEncode(
+                                        Convert.ToString(
+                                            Eval("title")
+                                        )
+                                    ) %>
+
+                                </div>
+
+                            </ItemTemplate>
+
+                        </asp:TemplateField>
+
+
+                        <asp:TemplateField HeaderText="Description">
+
+                            <ItemTemplate>
+
+                                <div class="proposal-description-cell">
+
+                                    <%# Server.HtmlEncode(
+                                        Convert.ToString(
+                                            Eval("description")
+                                        )
+                                    ) %>
+
+                                </div>
+
+                            </ItemTemplate>
+
+                        </asp:TemplateField>
+
+
+                        <asp:TemplateField HeaderText="Status">
+
+                            <ItemTemplate>
+
+                                <span class='<%# GetStatusCssClass(
+                                    Convert.ToString(Eval("status"))
+                                ) %>'>
+
+                                    <%# Server.HtmlEncode(
+                                        Convert.ToString(
+                                            Eval("status")
+                                        )
+                                    ) %>
+
+                                </span>
+
+                            </ItemTemplate>
+
+                        </asp:TemplateField>
+
+                    </Columns>
+
+                </asp:GridView>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </form>
 

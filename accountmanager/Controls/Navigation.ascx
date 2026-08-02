@@ -85,6 +85,10 @@
                 Manage Users
             </a>
 
+            <a href="<%= ResolveUrl("~/SubmitConcernGroup.aspx") %>">
+                Create Concern Group
+            </a>
+
         </asp:Panel>
 
 

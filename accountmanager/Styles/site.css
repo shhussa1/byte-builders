@@ -1822,3 +1822,336 @@ a:hover {
         display: contents;
     }
 }
+
+.concern-page {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 48px 0 64px;
+}
+
+.concern-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.concern-form-card,
+.concern-guidance-card {
+    padding: 34px;
+}
+
+.concern-textarea {
+    min-height: 180px;
+    height: 180px;
+    padding: 14px 16px;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.manager-access-badge {
+    padding: 9px 14px;
+    border: 1px solid #d9d6fe;
+    border-radius: 999px;
+    color: #6941c6;
+    background: #f4f3ff;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.guidance-item {
+    padding: 19px 0;
+    border-bottom: 1px solid #e8edf3;
+}
+
+.guidance-item strong,
+.guidance-item span {
+    display: block;
+}
+
+.concern-message {
+    min-height: 20px;
+    margin-top: 17px;
+}
+
+@media (max-width: 850px) {
+    .concern-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Submit Proposal concern-group dropdown */
+
+.proposal-select {
+    cursor: pointer;
+    color: #344054;
+    background-color: #ffffff;
+}
+
+.proposal-select:disabled {
+    cursor: not-allowed;
+    color: #98a2b3;
+    background-color: #f2f4f7;
+}
+
+.proposal-textarea {
+    min-height: 160px;
+    height: 160px;
+    padding: 14px 16px;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.field-help {
+    margin-top: 7px;
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+/* =========================================================
+   PROPOSAL STATUS PAGE
+   ========================================================= */
+
+.proposal-status-page {
+    width: min(1220px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 48px 0 64px;
+}
+
+.proposal-status-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.proposal-status-heading h1 {
+    margin: 0;
+    color: #101828;
+    font-size: 42px;
+    font-weight: 740;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+}
+
+.proposal-status-heading p {
+    max-width: 680px;
+    margin: 11px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.proposal-status-badge {
+    flex-shrink: 0;
+    padding: 9px 14px;
+    border: 1px solid #cfe3ff;
+    border-radius: 999px;
+    color: #0878ff;
+    background: #edf6ff;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.proposal-status-message {
+    display: block;
+    min-height: 20px;
+    margin: 0 0 18px;
+    text-align: left;
+}
+
+.proposal-table-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.proposal-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 26px 28px;
+    border-bottom: 1px solid #e8edf3;
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(8, 120, 255, 0.06),
+            transparent 38%
+        ),
+        #ffffff;
+}
+
+.proposal-table-eyebrow {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.proposal-table-header h2 {
+    margin: 0;
+    color: #101828;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.proposal-table-note {
+    max-width: 300px;
+    color: #667085;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: right;
+}
+
+.proposal-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.proposal-grid {
+    width: 100%;
+    min-width: 980px;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+.proposal-grid th {
+    padding: 16px 18px;
+    border-bottom: 1px solid #dce4ee;
+    color: #475467;
+    background: #f8fafc;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+}
+
+.proposal-grid td {
+    padding: 18px;
+    border-bottom: 1px solid #e8edf3;
+    color: #344054;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.proposal-grid tr:last-child td {
+    border-bottom: 0;
+}
+
+.proposal-grid tr:hover td {
+    background: #fbfdff;
+}
+
+.proposal-id-column {
+    width: 70px;
+    color: #667085;
+    font-weight: 650;
+}
+
+.concern-group-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 29px;
+    max-width: 190px;
+    padding: 5px 11px;
+    border: 1px solid #d1e9ff;
+    border-radius: 999px;
+    overflow: hidden;
+    color: #175cd3;
+    background: #eff8ff;
+    font-size: 12px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.proposal-title-cell {
+    min-width: 170px;
+    color: #101828;
+    font-weight: 680;
+    line-height: 1.45;
+}
+
+.proposal-description-cell {
+    min-width: 280px;
+    max-width: 440px;
+    color: #667085;
+    line-height: 1.6;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* Proposal status pills */
+
+.proposal-status-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.status-submitted {
+    color: #175cd3;
+    background: #eff8ff;
+}
+
+.status-under-review {
+    color: #b54708;
+    background: #fffaeb;
+}
+
+.status-approved {
+    color: #067647;
+    background: #ecfdf3;
+}
+
+.status-implemented {
+    color: #026aa2;
+    background: #f0f9ff;
+}
+
+.status-declined {
+    color: #b42318;
+    background: #fef3f2;
+}
+
+.status-default {
+    color: #475467;
+    background: #f2f4f7;
+}
+
+@media (max-width: 700px) {
+    .proposal-status-page {
+        width: calc(100% - 32px);
+        padding: 34px 0 46px;
+    }
+
+    .proposal-status-heading {
+        flex-direction: column;
+    }
+
+    .proposal-status-heading h1 {
+        font-size: 35px;
+    }
+
+    .proposal-table-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+    }
+
+    .proposal-table-note {
+        max-width: none;
+        text-align: left;
+    }
+}

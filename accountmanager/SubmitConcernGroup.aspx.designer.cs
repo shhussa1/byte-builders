@@ -1,21 +1,18 @@
 namespace accountmanager
 {
-    public partial class SubmitProposal
+    public partial class SubmitConcernGroup
     {
         protected global::System.Web.UI.HtmlControls.HtmlForm
             form1;
 
-        protected global::System.Web.UI.WebControls.DropDownList
-            ddlConcernGroup;
+        protected global::System.Web.UI.WebControls.TextBox
+            txtConcernGroupName;
 
         protected global::System.Web.UI.WebControls.TextBox
-            txtTitle;
-
-        protected global::System.Web.UI.WebControls.TextBox
-            txtDescription;
+            txtConcernGroupDescription;
 
         protected global::System.Web.UI.WebControls.Button
-            btnSubmitProposal;
+            btnCreateConcernGroup;
 
         protected global::System.Web.UI.WebControls.Label
             lblMessage;

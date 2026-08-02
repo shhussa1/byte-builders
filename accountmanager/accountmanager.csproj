@@ -99,6 +99,7 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ManageUsers.aspx" />
+    <Content Include="Controls\Navigation.ascx" />
     <Content Include="Styles\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="SubmitProposal.aspx.designer.cs">
     <DependentUpon>SubmitProposal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Navigation.ascx.cs">
+      <DependentUpon>Navigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Navigation.ascx.designer.cs">
+      <DependentUpon>Navigation.ascx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">

@@ -10,7 +10,7 @@ namespace accountmanager
             EventArgs e)
         {
             /*
-             * The dashboard requires a login.
+             * Only logged-in users can open the dashboard.
              */
             if (Session["UserId"] == null)
             {
@@ -19,41 +19,25 @@ namespace accountmanager
             }
 
             /*
-             * The role must also exist.
-             * If it does not, clear the invalid session.
+             * The user's role must exist in the session.
              */
             if (Session["Role"] == null)
             {
                 Session.Clear();
+                Session.Abandon();
 
                 Response.Redirect("Login.aspx");
                 return;
             }
 
-            if (!IsPostBack)
-            {
-                LoadDashboard();
-            }
-        }
-
-
-        private void LoadDashboard()
-        {
-            string firstName =
-                Convert.ToString(
-                    Session["FirstName"]
-                );
-
+            /*
+             * Set visibility every time the page loads.
+             * This ensures the correct role menu is displayed.
+             */
             string role =
                 Convert.ToString(
                     Session["Role"]
-                );
-
-            litUserName.Text =
-                Server.HtmlEncode(firstName);
-
-            litRole.Text =
-                Server.HtmlEncode(role);
+                ).Trim();
 
             SetMenuVisibility(role);
         }
@@ -63,14 +47,15 @@ namespace accountmanager
             string role)
         {
             /*
-             * Hide all role-specific panels first.
+             * Hide every role-specific panel first.
              */
             pnlEmployee.Visible = false;
             pnlManager.Visible = false;
             pnlAdmin.Visible = false;
 
+
             /*
-             * Employee menu.
+             * Employee dashboard.
              */
             if (role.Equals(
                 "Employee",
@@ -80,8 +65,9 @@ namespace accountmanager
                 return;
             }
 
+
             /*
-             * Manager menu.
+             * Manager dashboard.
              */
             if (role.Equals(
                 "Manager",
@@ -91,8 +77,9 @@ namespace accountmanager
                 return;
             }
 
+
             /*
-             * Admin menu.
+             * Admin dashboard.
              */
             if (role.Equals(
                 "Admin",
@@ -102,11 +89,12 @@ namespace accountmanager
                 return;
             }
 
+
             /*
-             * Unknown role:
-             * clear the session and require login again.
+             * Unknown role.
              */
             Session.Clear();
+            Session.Abandon();
 
             Response.Redirect("Login.aspx");
         }

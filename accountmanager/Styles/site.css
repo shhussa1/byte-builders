@@ -2361,3 +2361,417 @@ a:hover {
         width: 100%;
     }
 }
+
+/* =========================================================
+   UPDATE PROPOSAL STATUS
+   ========================================================= */
+
+.update-proposal-page {
+    width: min(1220px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 48px 0 64px;
+}
+
+
+/* ---------------------------------------------------------
+   PAGE MESSAGE
+   --------------------------------------------------------- */
+
+.update-proposal-message {
+    display: block;
+    min-height: 20px;
+    margin: 0 0 18px;
+    text-align: left;
+}
+
+
+/* ---------------------------------------------------------
+   TABLE
+   --------------------------------------------------------- */
+
+.update-proposal-grid {
+    min-width: 950px;
+}
+
+
+/* ---------------------------------------------------------
+   PROPOSAL TITLE / DESCRIPTION
+   --------------------------------------------------------- */
+
+.proposal-title-cell {
+    min-width: 260px;
+    max-width: 400px;
+}
+
+.proposal-title-cell strong {
+    display: block;
+    margin-bottom: 5px;
+
+    color: #101828;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+.proposal-title-cell span {
+    display: block;
+
+    color: #667085;
+
+    font-size: 12px;
+    line-height: 1.55;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+
+/* ---------------------------------------------------------
+   STATUS DROPDOWN
+   --------------------------------------------------------- */
+
+.status-dropdown {
+    width: 160px;
+    height: 40px;
+
+    padding: 0 34px 0 12px;
+
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+
+    outline: none;
+
+    color: #344054;
+
+    background-color: #ffffff;
+
+    font-family:
+        "Segoe UI Variable",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.status-dropdown:hover {
+    border-color: #98a2b3;
+}
+
+.status-dropdown:focus {
+    border-color: #1683ff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(22, 131, 255, 0.12);
+}
+
+
+/* ---------------------------------------------------------
+   UPDATE BUTTON
+   --------------------------------------------------------- */
+
+.proposal-update-button {
+    min-width: 95px;
+    height: 40px;
+
+    padding: 0 17px;
+
+    border: 0;
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0787ff 0%,
+            #1768ff 55%,
+            #6f37ff 100%
+        );
+
+    box-shadow:
+        0 7px 16px
+        rgba(35, 92, 255, 0.20);
+
+    font-family:
+        "Segoe UI Variable",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        filter 0.15s ease;
+}
+
+.proposal-update-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 21px
+        rgba(35, 92, 255, 0.27);
+
+    filter: brightness(1.04);
+}
+
+.proposal-update-button:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 5px 12px
+        rgba(35, 92, 255, 0.20);
+}
+
+
+/* =========================================================
+   PROPOSAL STATUS BADGES
+   ========================================================= */
+
+.proposal-status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 29px;
+
+    padding: 5px 11px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+
+/* Submitted */
+
+.proposal-status-submitted {
+    color: #175cd3;
+    background: #eff8ff;
+}
+
+
+/* Under Review */
+
+.proposal-status-review {
+    color: #b54708;
+    background: #fffaeb;
+}
+
+
+/* Approved */
+
+.proposal-status-approved {
+    color: #067647;
+    background: #ecfdf3;
+}
+
+
+/* Rejected */
+
+.proposal-status-rejected {
+    color: #b42318;
+    background: #fef3f2;
+}
+
+
+/* Implemented */
+
+.proposal-status-implemented {
+    color: #6941c6;
+    background: #f4f3ff;
+}
+
+
+/* Unknown/default */
+
+.proposal-status-default {
+    color: #475467;
+    background: #f2f4f7;
+}
+
+
+/* =========================================================
+   MANAGER / ADMIN ACCESS BADGE
+   ========================================================= */
+
+.manager-access-badge {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+
+    padding: 7px 14px;
+
+    border: 1px solid #cfe3ff;
+    border-radius: 999px;
+
+    color: #0878ff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0f8ff,
+            #f5f3ff
+        );
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SUCCESS / ERROR MESSAGES
+   ========================================================= */
+
+.message-success {
+    padding: 12px 15px;
+
+    border: 1px solid #abefc6;
+    border-radius: 9px;
+
+    color: #067647;
+
+    background: #ecfdf3;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.message-error {
+    padding: 12px 15px;
+
+    border: 1px solid #fecdca;
+    border-radius: 9px;
+
+    color: #b42318;
+
+    background: #fef3f2;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   RETURN TO DASHBOARD AREA
+   ========================================================= */
+
+.group-details-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 14px;
+
+    margin-top: 24px;
+}
+
+.secondary-link-button {
+    min-height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 18px;
+
+    border: 1px solid #d0d5dd;
+    border-radius: 9px;
+
+    color: #344054;
+
+    background: #ffffff;
+
+    font-family:
+        "Segoe UI Variable",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease,
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.secondary-link-button:hover {
+    transform: translateY(-1px);
+
+    border-color: #98a2b3;
+
+    color: #101828;
+
+    background: #f8fafc;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .update-proposal-page {
+        width: calc(100% - 36px);
+    }
+
+    .proposal-status-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .update-proposal-page {
+        width: calc(100% - 32px);
+
+        padding:
+            34px
+            0
+            46px;
+    }
+
+    .group-details-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .secondary-link-button {
+        width: 100%;
+    }
+}

@@ -1,4 +1,5 @@
-<%@ Page Language="C#" AutoEventWireup="true"
+<%@ Page Language="C#"
+    AutoEventWireup="true"
     CodeBehind="Dashboard.aspx.cs"
     Inherits="accountmanager.Dashboard" %>
 
@@ -31,7 +32,9 @@
         ID="Navigation1"
         runat="server" />
 
+
     <main class="dashboard-page">
+
 
         <section class="dashboard-heading">
 
@@ -49,16 +52,19 @@
 
         </section>
 
+
         <asp:Label
             ID="lblDashboardMessage"
             runat="server"
             CssClass="message dashboard-message" />
 
+
         <div class="dashboard-grid">
 
-            <!-- ===================================================== -->
-            <!-- EMPLOYEE -->
-            <!-- ===================================================== -->
+
+            <%-- =====================================================
+                 EMPLOYEE DASHBOARD
+                 ===================================================== --%>
 
             <asp:Panel
                 ID="pnlEmployee"
@@ -66,10 +72,13 @@
                 CssClass="dashboard-panel"
                 Visible="false">
 
+
                 <a href="SubmitProposal.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">01</div>
+                    <div class="dashboard-card-icon">
+                        01
+                    </div>
 
                     <div class="dashboard-card-content">
 
@@ -77,15 +86,16 @@
                             Employee
                         </span>
 
-                        <h2>Submit Proposal</h2>
+                        <h2>
+                            Submit Proposal
+                        </h2>
 
                         <p>
-                            Submit a workplace proposal to an active
-                            concern group.
+                            Submit a workplace proposal to an
+                            active concern group.
                         </p>
 
                     </div>
-
 
                 </a>
 
@@ -93,7 +103,9 @@
                 <a href="ProposalStatus.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">02</div>
+                    <div class="dashboard-card-icon">
+                        02
+                    </div>
 
                     <div class="dashboard-card-content">
 
@@ -101,24 +113,27 @@
                             Proposals
                         </span>
 
-                        <h2>View Proposal Status</h2>
+                        <h2>
+                            View Proposal Status
+                        </h2>
 
                         <p>
-                            Track the current progress of your
-                            submitted proposals.
+                            Track the current progress and status
+                            of your submitted proposals.
                         </p>
 
                     </div>
 
-
                 </a>
+
 
             </asp:Panel>
 
 
-            <!-- ===================================================== -->
-            <!-- MANAGER -->
-            <!-- ===================================================== -->
+
+            <%-- =====================================================
+                 MANAGER DASHBOARD
+                 ===================================================== --%>
 
             <asp:Panel
                 ID="pnlManager"
@@ -126,10 +141,13 @@
                 CssClass="dashboard-panel"
                 Visible="false">
 
+
                 <a href="SubmitConcernGroup.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">01</div>
+                    <div class="dashboard-card-icon">
+                        01
+                    </div>
 
                     <div class="dashboard-card-content">
 
@@ -137,23 +155,27 @@
                             Manager
                         </span>
 
-                        <h2>Create Concern Group</h2>
+                        <h2>
+                            Create Concern Group
+                        </h2>
 
                         <p>
-                            Create new concern groups available for
-                            employee proposals.
+                            Create new concern groups that employees
+                            can select when submitting workplace
+                            proposals.
                         </p>
 
                     </div>
 
- 
                 </a>
 
 
                 <a href="ViewGroupDetails.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">02</div>
+                    <div class="dashboard-card-icon">
+                        02
+                    </div>
 
                     <div class="dashboard-card-content">
 
@@ -161,39 +183,17 @@
                             Manager
                         </span>
 
-                        <h2>View Concern Groups</h2>
+                        <h2>
+                            View Concern Groups
+                        </h2>
 
                         <p>
-                            View all concern groups along with the
-                            manager who created each one.
+                            View all concern groups, their status,
+                            creation date, and the Manager who
+                            created them.
                         </p>
 
                     </div>
-
-
-                </a>
-
-
-                <a href="SubmittedProposals.aspx"
-                   class="dashboard-card">
-
-                    <div class="dashboard-card-icon">03</div>
-
-                    <div class="dashboard-card-content">
-
-                        <span class="dashboard-card-label">
-                            Manager
-                        </span>
-
-                        <h2>View Submitted Proposals</h2>
-
-                        <p>
-                            Review every proposal submitted by
-                            employees.
-                        </p>
-
-                    </div>
-
 
                 </a>
 
@@ -201,7 +201,9 @@
                 <a href="ProposalStatus.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">04</div>
+                    <div class="dashboard-card-icon">
+                        03
+                    </div>
 
                     <div class="dashboard-card-content">
 
@@ -209,15 +211,16 @@
                             Proposals
                         </span>
 
-                        <h2>View Proposal Status</h2>
+                        <h2>
+                            View Proposal Status
+                        </h2>
 
                         <p>
-                            View proposal status, progress and
-                            workflow updates.
+                            Review the current status and progress
+                            of submitted workplace proposals.
                         </p>
 
                     </div>
-
 
                 </a>
 
@@ -225,7 +228,9 @@
                 <a href="UpdateProposalStatus.aspx"
                    class="dashboard-card">
 
-                    <div class="dashboard-card-icon">05</div>
+                    <div class="dashboard-card-icon">
+                        04
+                    </div>
 
                     <div class="dashboard-card-content">
 
@@ -233,24 +238,27 @@
                             Manager
                         </span>
 
-                        <h2>Update Proposal Status</h2>
+                        <h2>
+                            Update Proposal Status
+                        </h2>
 
                         <p>
-                            Approve, reject or update proposal
-                            progress.
+                            Review proposals and update their status
+                            through the proposal workflow.
                         </p>
 
                     </div>
 
-
                 </a>
+
 
             </asp:Panel>
 
 
-            <!-- ===================================================== -->
-            <!-- ADMIN -->
-            <!-- ===================================================== -->
+
+            <%-- =====================================================
+                 ADMIN DASHBOARD
+                 ===================================================== --%>
 
             <asp:Panel
                 ID="pnlAdmin"
@@ -258,10 +266,13 @@
                 CssClass="dashboard-panel"
                 Visible="false">
 
+
                 <a href="ManageUsers.aspx"
                    class="dashboard-card dashboard-card-admin">
 
-                    <div class="dashboard-card-icon">01</div>
+                    <div class="dashboard-card-icon">
+                        01
+                    </div>
 
                     <div class="dashboard-card-content">
 
@@ -269,19 +280,49 @@
                             Administration
                         </span>
 
-                        <h2>Manage Users</h2>
+                        <h2>
+                            Manage Users
+                        </h2>
 
                         <p>
-                            Promote Employees to Managers and manage
-                            user permissions.
+                            Manage registered users and assign
+                            Employee or Manager roles.
                         </p>
 
                     </div>
 
+                </a>
+
+
+                <a href="UpdateProposalStatus.aspx"
+                   class="dashboard-card dashboard-card-admin">
+
+                    <div class="dashboard-card-icon">
+                        02
+                    </div>
+
+                    <div class="dashboard-card-content">
+
+                        <span class="dashboard-card-label">
+                            Administration
+                        </span>
+
+                        <h2>
+                            Update Proposal Status
+                        </h2>
+
+                        <p>
+                            Review proposals and update their
+                            current workflow status.
+                        </p>
+
+                    </div>
 
                 </a>
 
+
             </asp:Panel>
+
 
         </div>
 

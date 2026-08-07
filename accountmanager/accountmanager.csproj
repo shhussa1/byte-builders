@@ -101,6 +101,7 @@
     <Content Include="ManageUsers.aspx" />
     <Content Include="SubmitConcernGroup.aspx" />
     <Content Include="ViewGroup.aspx" />
+    <Content Include="UpdateProposalStatus.aspx" />
     <Content Include="Controls\Navigation.ascx" />
     <Content Include="Styles\site.css" />
     <Content Include="Web.config" />
@@ -131,6 +132,14 @@
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UpdateProposalStatus.aspx.cs">
+      <DependentUpon>UpdateProposalStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateProposalStatus.aspx.designer.cs">
+      <DependentUpon>UpdateProposalStatus.aspx</DependentUpon>
+    </Compile>
+
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
